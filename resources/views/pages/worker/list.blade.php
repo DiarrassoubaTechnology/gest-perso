@@ -37,8 +37,10 @@
                                     <thead>
                                         <tr>
                                             <th>Identifiant</th>
-                                            <th>Nom et prenoms</th>
+                                            <th>Nom</th>
+                                            <th>Prenoms</th>
                                             <th>E-mail</th>
+                                            <th>Téléphone</th>
                                             <th>Service</th>
                                             <th>Fonction</th>
                                             <th>Date Naissance</th>
@@ -48,21 +50,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @for ($i=1; $i<12; $i++)
-                                            
-                                        <tr>
-                                            <td>{{$i}}</td>
-                                            <td>System Architect</td>
-                                            <td>test@gmail.com</td>
-                                            <td>IT</td>
-                                            <td>Developpeur</td>
-                                            <td>2011/04/25</td>
-                                            <td>Abidjan</td>
-                                            <td>Actif</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        
-                                        @endfor
+                                        @if (empty($get_liste_employee))
+                                            <tr>
+                                                <td colspan="9">Aucune donnée disponible.</td>
+                                            </tr>
+                                        @else
+                                            <tr {{$get_liste_employee['role_employee'] == 'admin' ? 'class="bg-danger"' : ''}}>
+                                                <td>{{$get_liste_employee['code_employee']}}</td>
+                                                <td>{{$get_liste_employee['firstname_employee']}}</td>
+                                                <td>{{$get_liste_employee['lastname_employee']}}</td>
+                                                <td>{{$get_liste_employee['email']}}</td>
+                                                <td>{{$get_liste_employee['tel_employee']}}</td>
+                                                <td>{{$get_liste_employee['libelle_service']}}</td>
+                                                <td>{{$get_liste_employee['fonction_employee']}}</td>
+                                                <td>{{$get_liste_employee['date_of_birth']}}</td>
+                                                <td>{{$get_liste_employee['place_of_birth']}}</td>
+                                            </tr>
+                                        @endif
                                         
                                     </tbody>
                                     <tfoot>

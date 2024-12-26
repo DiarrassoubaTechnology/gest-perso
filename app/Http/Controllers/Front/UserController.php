@@ -4,16 +4,19 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function accountPasswdChange(){
-        $title = "Mon profil";
-        $callprofilpagefile = "true";
 
-        if (auth()->check()) {
+        if (Auth::check()) {
+
+            $title = "Mon profil";
+            $callprofilpagefile = "true";
+
             // L'utilisateur est authentifié (connecté)
-            $accountUser = auth()->user(); // Informations de l'utilisateur standard
+            $accountUser = Auth::check(); // Informations de l'utilisateur standard
             $user = User::where('user_id', $accountUser->user_id)->first(); // Informations de l'utilisateur de compte
 
             // Recuperons les infos de user
@@ -30,7 +33,7 @@ class UserController extends Controller
             return view('pages.front.infosUser.security', compact('title','Allsouscategorie','infoAbout','infosUser','countcart','user','callprofilpagefile'));
         } else {
             // L'utilisateur n'est pas authentifié (déconnecté)
-            return redirect('/connexion');
+            return redirect('/');
         }
     }
 }

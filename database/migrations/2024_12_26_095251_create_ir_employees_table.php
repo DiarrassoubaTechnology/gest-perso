@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('tel_employee');
             $table->unsignedBigInteger('service_id');
             $table->unsignedBigInteger('fonction_employee');
+            $table->string('date_of_birth')->nullable();
+            $table->string('place_of_birth')->nullable();
             $table->unsignedBigInteger('status_id');
             $table->timestamps();
             $table->foreign('service_id')->references('id')->on('ir_services')->onDelete('cascade');
