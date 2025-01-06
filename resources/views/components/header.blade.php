@@ -15,15 +15,15 @@
 				<a href="{{route('page.dashboard')}}">
 					<b class="logo-icon">
 						<!-- Dark Logo icon -->
-						<img src="{{asset('assets/assets/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />
+						<img src="{{asset('assets/assets/images/logo-hr-flow.png')}}" alt="homepage" class="dark-logo mt-4" />
 						<!-- Light Logo icon -->
-						<img src="{{asset('assets/assets/images/logo-icon.png')}}" alt="homepage" class="light-logo" />
+						<img src="{{asset('assets/assets/images/logo-hr-flow.png')}}" alt="homepage" class="light-logo mt-4" />
 					</b>
 					<!--End Logo icon -->
 					<!-- Logo text -->
-					<span class="logo-text">
-						HRFlow
-					</span>
+					{{-- <span class="logo-text">
+						HRFLOW
+					</span> --}}
 				</a>
 			</div>
 			<!-- ============================================================== -->
@@ -184,10 +184,6 @@
 							Mon profil
 						</a>
 						<a class="dropdown-item" href="javascript:void(0)">
-							<i data-feather="credit-card" class="svg-icon mr-2 ml-1"></i>
-							Mon solde
-						</a>
-						<a class="dropdown-item" href="javascript:void(0)">
 							<i data-feather="mail" class="svg-icon mr-2 ml-1"></i>
 							Boîte de réception
 						</a>
@@ -202,12 +198,6 @@
 							Déconnexion
 						</a>
 						
-						<div class="dropdown-divider"></div>
-						<div class="pl-4 p-3">
-							<a href="javascript:void(0)" class="btn btn-sm btn-info">
-								Voir le profil
-							</a>
-						</div>
 					</div>
 				</li>
 				<!-- ============================================================== -->

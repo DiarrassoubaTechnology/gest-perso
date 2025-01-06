@@ -13,9 +13,9 @@ class DashboardController extends Controller
 
         if (Auth::check()) {
             
-            $title = "IR GROUP";
+            $load_liste_file_dashboard = true;
 
-            $title = "Dashboard";
+            $title = "Tableau de bord";
         
             $under_title = "Bonjour IR GROUP!";
 

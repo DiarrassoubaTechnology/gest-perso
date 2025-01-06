@@ -26,7 +26,7 @@
                 <div class="col-lg-6 col-md-7 bg-white">
                     <div class="p-3">
                         <div class="text-center">
-                            <img src="assets/assets/images/logo-icon.png" alt="wrapkit">
+                            <img src="assets/assets/images/hrflow-logo.png" alt="wrapkit">
                         </div>
                         <h2 class="mt-3 text-center">Bonjour! Commençons</h2>
                         <p class="text-center">Connectez-vous pour continuer.</p>

@@ -21,6 +21,21 @@
         @include('components.breadcrumb')
         <!-- End Bread crumb and right sidebar toggle -->
 
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <p>Page en contruction...</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer  -->
         @include('components.footer')
         <!-- END Footer  -->

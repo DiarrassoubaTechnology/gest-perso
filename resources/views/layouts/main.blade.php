@@ -15,14 +15,21 @@
     <title>{{ "IR GROUP - ". $title }}</title>
 
     <!-- Custom CSS -->
-    <link href="{{asset('assets/assets/extra-libs/c3/c3.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet" />
+    @if (isset($load_liste_file_dashboard) && $load_liste_file_dashboard == true)
+        <link href="{{asset('assets/assets/extra-libs/c3/c3.min.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet" />
+    @endif
 
     
     @if (isset($load_liste_file_employee) && $load_liste_file_employee == true)
         <!-- This page plugin CSS -->
         <link href="{{asset('assets/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
+    @endif
+
+    
+    @if (isset($load_liste_file_appointment) && $load_liste_file_appointment == true)
+        <link href="{{asset('assets/assets/libs/fullcalendar/dist/fullcalendar.min.css')}}" rel="stylesheet" />
     @endif
     
     <!-- Custom CSS -->
@@ -72,31 +79,46 @@
             
         </div>
 
-        <script src="{{asset('assets/assets/libs/jquery/dist/jquery.min.js')}}"></script>
-        <script src="{{asset('assets/assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
-        <script src="{{asset('assets/assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-        <!-- apps -->
-        <!-- apps -->
-        <script src="{{asset('assets/dist/js/app-style-switcher.js')}}"></script>
-        <script src="{{asset('assets/dist/js/feather.min.js')}}"></script>
-        <script src="{{asset('assets/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')}}"></script>
-        <script src="{{asset('assets/dist/js/sidebarmenu.js')}}"></script>
-        <!--Custom JavaScript -->
-        <script src="{{asset('assets/dist/js/custom.min.js')}}"></script>
-        <!--This page JavaScript -->
-        <script src="{{asset('assets/assets/extra-libs/c3/d3.min.js')}}"></script>
-        <script src="{{asset('assets/assets/extra-libs/c3/c3.min.js')}}"></script>
-        <script src="{{asset('assets/assets/libs/chartist/dist/chartist.min.js')}}"></script>
-        <script src="{{asset('assets/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
-        <script src="{{asset('assets/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js')}}"></script>
-        <script src="{{asset('assets/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js')}}"></script>
-        <script src="{{asset('assets/dist/js/pages/dashboards/dashboard1.min.js')}}"></script>
+            <script src="{{asset('assets/assets/libs/jquery/dist/jquery.min.js')}}"></script>
+            <script src="{{asset('assets/assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
+            <script src="{{asset('assets/assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+            <!-- apps -->
+            <!-- apps -->
+            <script src="{{asset('assets/dist/js/app-style-switcher.js')}}"></script>
+            <script src="{{asset('assets/dist/js/feather.min.js')}}"></script>
+            <script src="{{asset('assets/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')}}"></script>
+            <script src="{{asset('assets/dist/js/sidebarmenu.js')}}"></script>
+            <!--Custom JavaScript -->
+            <script src="{{asset('assets/dist/js/custom.min.js')}}"></script>
+            <!--This page JavaScript -->
+            <script src="{{asset('assets/assets/extra-libs/c3/d3.min.js')}}"></script>
+            <script src="{{asset('assets/assets/extra-libs/c3/c3.min.js')}}"></script>
+            <script src="{{asset('assets/assets/libs/chartist/dist/chartist.min.js')}}"></script>
+            <script src="{{asset('assets/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
+            <script src="{{asset('assets/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js')}}"></script>
+            <script src="{{asset('assets/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js')}}"></script>
+
+
+        @if (isset($load_liste_file_dashboard) && $load_liste_file_dashboard == true)
+            <script src="{{asset('assets/dist/js/pages/dashboards/dashboard1.min.js')}}"></script>
+            
+        @endif
 
         @if (isset($load_liste_file_employee) && $load_liste_file_employee == true)
             <script src="{{asset('assets/assets/extra-libs/sparkline/sparkline.js')}}"></script>
             <!--This page plugins -->
             <script src="{{asset('assets/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
             <script src="{{asset('assets/dist/js/pages/datatable/datatable-basic.init.js')}}"></script>
+            <script src="{{asset('assets/assets/js/file_worker.js')}}"></script>
+        @endif
+
+        @if (isset($load_liste_file_appointment) && $load_liste_file_appointment == true)
+        
+            <script src="{{asset('assets/assets/extra-libs/taskboard/js/jquery.ui.touch-punch-improved.js')}}"></script>
+            <script src="{{asset('assets/assets/extra-libs/taskboard/js/jquery-ui.min.js')}}"></script>
+            <script src="{{asset('assets/assets/libs/moment/min/moment.min.js')}}"></script>
+            <script src="{{asset('assets/assets/libs/fullcalendar/dist/fullcalendar.min.js')}}"></script>
+            <script src="{{asset('assets/dist/js/pages/calendar/cal-init.js')}}"></script>
         @endif
 
     </body>
