@@ -55,6 +55,8 @@ class IrEmployee extends Model
 		'tel_employee',
 		'service_id',
 		'fonction_employee',
+		'date_of_birth',
+		'place_of_birth',
 		'status_id'
 	];
 

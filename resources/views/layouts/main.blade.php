@@ -34,6 +34,13 @@
     
     <!-- Custom CSS -->
     <link href="{{asset('assets/dist/css/style.min.css')}}" rel="stylesheet">
+
+    
+
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css " rel="stylesheet">
+
+    
+    <meta name="csrf_token" content="{{ csrf_token() }}" />
     
 </head>
 
@@ -87,9 +94,8 @@
             <script src="{{asset('assets/dist/js/app-style-switcher.js')}}"></script>
             <script src="{{asset('assets/dist/js/feather.min.js')}}"></script>
             <script src="{{asset('assets/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')}}"></script>
-            <script src="{{asset('assets/dist/js/sidebarmenu.js')}}"></script>
-            <!--Custom JavaScript -->
-            <script src="{{asset('assets/dist/js/custom.min.js')}}"></script>
+
+        @if (isset($load_liste_file_dashboard) && $load_liste_file_dashboard == true)
             <!--This page JavaScript -->
             <script src="{{asset('assets/assets/extra-libs/c3/d3.min.js')}}"></script>
             <script src="{{asset('assets/assets/extra-libs/c3/c3.min.js')}}"></script>
@@ -97,11 +103,7 @@
             <script src="{{asset('assets/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
             <script src="{{asset('assets/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js')}}"></script>
             <script src="{{asset('assets/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js')}}"></script>
-
-
-        @if (isset($load_liste_file_dashboard) && $load_liste_file_dashboard == true)
             <script src="{{asset('assets/dist/js/pages/dashboards/dashboard1.min.js')}}"></script>
-            
         @endif
 
         @if (isset($load_liste_file_employee) && $load_liste_file_employee == true)
@@ -110,6 +112,8 @@
             <script src="{{asset('assets/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
             <script src="{{asset('assets/dist/js/pages/datatable/datatable-basic.init.js')}}"></script>
             <script src="{{asset('assets/assets/js/file_worker.js')}}"></script>
+            <script src="{{asset('assets/js/_liste.js')}}"></script>
+            <script src="{{asset('assets/js/_file_employee.js')}}"></script>
         @endif
 
         @if (isset($load_liste_file_appointment) && $load_liste_file_appointment == true)
@@ -120,6 +124,13 @@
             <script src="{{asset('assets/assets/libs/fullcalendar/dist/fullcalendar.min.js')}}"></script>
             <script src="{{asset('assets/dist/js/pages/calendar/cal-init.js')}}"></script>
         @endif
+
+        
+        <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js "></script>
+
+        <script src="{{asset('assets/dist/js/sidebarmenu.js')}}"></script>
+        <!--Custom JavaScript -->
+        <script src="{{asset('assets/dist/js/custom.min.js')}}"></script>
 
     </body>
 </html>
