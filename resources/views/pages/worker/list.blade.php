@@ -333,12 +333,14 @@
                                                                             Pour des raisons de sécurité, nous vous informons qu'il est nécessaire de générer un nouveau mot de passe pour accéder à votre compte. 
                                                                             Nous vous recommandons de ne pas partager votre mot de passe avec d'autres et de le conserver dans un endroit sûr. Cliquez ici pour générer un nouveau mot de passe.
                                                                         </small>
-                                                                        <form>                                                                        
+                                                                        <form id="formEmployeeKey"> 
+                                                                            @csrf
+                                                                            <input type="hidden" name="employee" value="{{$get_liste_employee['code_employee']}}">                                                                       
                                                                             <hr>
                                                                             <div class="form-group">
                                                                                 <label for="password">Mot de passe <span class="text-danger">*</span></label>
                                                                                 <div class="input-group">
-                                                                                    <input type="password" required class="form-control" id="password" placeholder="Enter your password">
+                                                                                    <input type="password" required class="form-control" id="password" placeholder="Enter your password" name="newpassword">
                                                                                     <div class="input-group-append">
                                                                                         <span class="input-group-text" onclick="togglePassword()">
                                                                                             <i id="eye-icon" class="fas fa-eye"></i>
@@ -347,8 +349,12 @@
                                                                                 </div>
                                                                             </div>
                                                                             <button type="button" class="btn btn-primary" onclick="generatePassword()">Générer</button>
-                                                                            <button type="button" class="btn btn-success">Enregistrer</button>
-                                                                        
+                                                                            <button type="button" class="btn btn-success" id="btnEmployeeKey">
+                                                                                <div class="spinner-border spinner-border-sm" role="status" id="loadingSpinnerKey" style="display: none;">
+                                                                                    <span class="sr-only">Loading...</span>
+                                                                                </div>
+                                                                                Enregistrer
+                                                                            </button>
                                                                         </form>
 
                                                                     </div>

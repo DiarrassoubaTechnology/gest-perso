@@ -8,6 +8,7 @@ use App\Models\IrService;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class WorkerController extends Controller
 {
@@ -161,7 +162,7 @@ class WorkerController extends Controller
         
                         'employees_id' => $insertemployee->id,
                         'email'=> $request->email,
-                        'password'=> $pwd_employee,
+                        'password'=> Hash::make($pwd_employee),
                         'role_employee'=> $request->myrole,
                         'created_at' => date('Y-m-d H:m:s'),
                         'updated_at' => date('Y-m-d H:m:s'),
@@ -391,6 +392,64 @@ class WorkerController extends Controller
             } else {
                 return response()->json([
                     'message' => 'Une erreur dans la modification. Veuillez réessayer en vérifiant les champs.',
+                    'status' => "warning",
+                ]);
+            }
+
+        } else {
+            // L'utilisateur n'est pas authentifié (déconnecté)
+            return redirect()->route('/');
+        }
+    }
+
+    //Page key Workers
+    function pageKeyWorkers(Request $request)
+    {
+
+        if (Auth::check()) {
+
+            // Validation des champs
+            $validated = $request->validate([
+                'newpassword' => 'required',
+            ]);
+
+            if ($validated) {
+                // Récupération de id employee et user
+                $get_info_employee_enable = IrEmployee::join('users','users.employees_id','=','ir_employees.id')
+                ->select('ir_employees.id')
+                ->where('ir_employees.code_employee', $request->employee)
+                ->where('ir_employees.status_id', 3)
+                ->get()->toArray()[0];
+
+                if (empty($get_info_employee_enable)) {
+                    return response()->json([
+                        'message' => "L'employé n'a pas de compte Actif.",
+                        'status' => "warning",
+                    ]);
+                }
+                
+                // Mise à jour des informations de l'employé
+                if(User::where('employees_id', $get_info_employee_enable['id'])->update(
+                    [
+                        'password' => Hash::make($request->newpassword),
+                        'updated_at' => date('Y/m/d H:i:s'),
+                    ]
+                )){
+                        
+                        return response()->json([
+                            'message' => "Le nouveau de passe a été renouvelé avec succès.",
+                            'status' => "success",
+                        ]);
+                } else {
+                    return response()->json([
+                        'message' => "Votre demande de renouvellement n'a pas été traité.",
+                        'status' => "warning",
+                    ]);
+                }
+                    
+            } else {
+                return response()->json([
+                    'message' => 'Une erreur dans le renouvellement. Veuillez réessayer en vérifiant les champs.',
                     'status' => "warning",
                 ]);
             }

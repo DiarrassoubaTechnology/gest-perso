@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/employee/edit', [WorkerController::class, 'pageEditWorkers'])->name('page.worker.edit');
     Route::post('/employee/delete', [WorkerController::class, 'pageDeleteWorkers'])->name('page.worker.delete');
     Route::post('/employee/enable', [WorkerController::class, 'pageEnableWorkers'])->name('page.worker.enable');
+    Route::post('/employee/key', [WorkerController::class, 'pageKeyWorkers'])->name('page.worker.key');
 
     Route::get('/chat/team', [ChatController::class, 'pageChatTeam'])->name('page.team.chat');
     Route::get('/appointment/team', [RDVController::class, 'pageRdvTeam'])->name('page.team.rdv');

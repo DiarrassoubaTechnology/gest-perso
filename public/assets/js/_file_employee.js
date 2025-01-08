@@ -313,4 +313,62 @@ $(document).ready(function () {
         });
 
     });
+
+    $('#btnEmployeeKey').on('click', function () {
+        
+        // Désactiver le bouton
+        $('#btnEmployeeKey').prop('disabled', true);
+
+        // Afficher le spinner et masquer le texte "Enregistrer"
+        $('#loadingSpinnerKey').show(); // Affiche le spinner
+
+        var formData = $('#formEmployeeKey').serialize();
+        
+        $.ajax({
+            url: '/employee/key',
+            type: 'POST',
+            data: formData,
+            headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+                },
+            success: function(response) {
+                // Traitez la réponse en cas de succès
+                if(response.message){
+                    Swal.fire(
+                        {
+                            title: "Success!!!",
+                            text: response.message,
+                            icon: response.status,
+                            confirmButtonText: 'OK'
+                        }
+                    ).then((result) => {
+                        if (result.isConfirmed) {
+                            // Action à effectuer si l'utilisateur click
+                            window.location.reload (); // Recharge la page
+                        }
+                    });
+                    return false;
+                }
+            },
+            error: function(xhr, status, error) {
+                // Traitez les erreurs en cas d'échec
+                //console.error(xhr.responseText);  Affichez l'erreur dans la console pour le débogage
+                Swal.fire(
+                    {
+                        title: "Erreur!!!",
+                        text: xhr.responseText.message,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    }
+                  );
+                  return false;
+            },
+            complete: function() {
+                // Réactiver le bouton et restaurer le texte et masquer le spinner
+                $('#btnEmployeeKey').prop('disabled', false);
+                $('#loadingSpinnerKey').hide(); // Masquer le spinner
+            }
+        });
+
+    });
 });

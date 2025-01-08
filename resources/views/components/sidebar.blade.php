@@ -96,13 +96,13 @@
                 <li class="nav-small-cap"><span class="hide-menu">Projets</span></li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link sidebar-link" href="authentication-login1.html" aria-expanded="false">
+                    <a class="sidebar-link sidebar-link" href="{{route('page.worker.list')}}" aria-expanded="false">
                         <i data-feather="layers" class="feather-icon"></i>
                         <span class="hide-menu">Liste des projets </span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link sidebar-link" href="authentication-register1.html" aria-expanded="false">
+                    <a class="sidebar-link sidebar-link" href="{{route('page.worker.list')}}" aria-expanded="false">
                         <i data-feather="folder" class="feather-icon"></i>
                         <span class="hide-menu">Affecter les projets </span>
                     </a>
@@ -113,13 +113,13 @@
                             class="hide-menu">Nos Tâches
                         </span></a>
                     <ul aria-expanded="false" class="collapse first-level base-level-line">
-                        <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><span
+                        <li class="sidebar-item"><a href="{{route('page.worker.list')}}" class="sidebar-link"><span
                                     class="hide-menu"> En cours </span></a></li>
 
-                        <li class="sidebar-item"><a href="icon-simple-lineicon.html" class="sidebar-link"><span
+                        <li class="sidebar-item"><a href="{{route('page.worker.list')}}" class="sidebar-link"><span
                                     class="hide-menu"> Terminé </span></a></li>
 
-                        <li class="sidebar-item"><a href="icon-simple-lineicon.html" class="sidebar-link"><span
+                        <li class="sidebar-item"><a href="{{route('page.worker.list')}}" class="sidebar-link"><span
                                     class="hide-menu"> Suspendu </span></a></li>
                     </ul>
                 </li>
