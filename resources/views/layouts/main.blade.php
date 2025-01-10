@@ -26,6 +26,16 @@
         <!-- This page plugin CSS -->
         <link href="{{asset('assets/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
     @endif
+    
+    @if (isset($load_liste_history_hours) && $load_liste_history_hours == true)
+        <!-- This page plugin CSS -->
+        <link href="{{asset('assets/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
+    @endif
+    
+    @if (isset($load_leave_list) && $load_leave_list == true)
+        <!-- This page plugin CSS -->
+        <link href="{{asset('assets/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
+    @endif
 
     
     @if (isset($load_liste_file_appointment) && $load_liste_file_appointment == true)
@@ -116,6 +126,19 @@
             <script src="{{asset('assets/js/_file_employee.js')}}"></script>
         @endif
 
+        @if (isset($load_liste_history_hours) && $load_liste_history_hours == true)
+            <script src="{{asset('assets/assets/extra-libs/sparkline/sparkline.js')}}"></script>
+            <!--This page plugins -->
+            <script src="{{asset('assets/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+            <script src="{{asset('assets/dist/js/pages/datatable/datatable-basic.init.js')}}"></script>
+        @endif
+
+        @if (isset($load_leave_list) && $load_leave_list == true)
+            <!--This page plugins -->
+            <script src="{{asset('assets/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+            <script src="{{asset('assets/dist/js/pages/datatable/datatable-basic.init.js')}}"></script>
+        @endif
+
         @if (isset($load_liste_file_appointment) && $load_liste_file_appointment == true)
         
             <script src="{{asset('assets/assets/extra-libs/taskboard/js/jquery.ui.touch-punch-improved.js')}}"></script>
@@ -123,6 +146,16 @@
             <script src="{{asset('assets/assets/libs/moment/min/moment.min.js')}}"></script>
             <script src="{{asset('assets/assets/libs/fullcalendar/dist/fullcalendar.min.js')}}"></script>
             <script src="{{asset('assets/dist/js/pages/calendar/cal-init.js')}}"></script>
+        @endif
+
+        @if (isset($load_file_clockTime) && $load_file_clockTime == true)
+            <script src="{{asset('assets/js/_time_clock.js')}}"></script>
+        @endif
+
+        @if (isset($load_statistic_hours) && $load_statistic_hours == true)
+            <!-- Chart JS -->
+            <script src="{{asset('assets/dist/js/pages/chartjs/chartjs.init.js')}}"></script>
+            <script src="{{asset('assets/assets/libs/chart.js/dist/Chart.min.js')}}"></script>
         @endif
 
         

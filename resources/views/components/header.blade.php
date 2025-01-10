@@ -172,8 +172,11 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
-						<img src="{{asset('assets/assets/images/users/profile-pic.jpg')}}" alt="user" class="rounded-circle"
-							width="40">
+						{{-- <img src="{{asset('assets/assets/images/users/profile-pic.jpg')}}" alt="user" class="rounded-circle" width="40"> --}}
+						<!-- Cercle avec du texte à l'intérieur -->
+						<span class="rounded-circle bg-primary text-white d-inline-flex justify-content-center align-items-center" style="width: 40px; height: 40px; font-size: 18px;">
+							IG
+						</span>
 						<span class="ml-2 d-none d-lg-inline-block"><span>Bonjour,</span> <span
 								class="text-dark">IR GROUP</span> <i data-feather="chevron-down"
 								class="svg-icon"></i></span>

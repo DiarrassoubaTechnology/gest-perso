@@ -20,6 +20,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $tel_employee
  * @property int $service_id
  * @property int $fonction_employee
+ * @property string|null $date_of_birth
+ * @property string|null $place_of_birth
  * @property int $status_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -34,6 +36,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|IrProject[] $ir_projects
  * @property Collection|IrTeamForAppointment[] $ir_team_for_appointments
  * @property Collection|IrTeamOnTheProject[] $ir_team_on_the_projects
+ * @property Collection|IrTimeWork[] $ir_time_works
  * @property Collection|User[] $users
  *
  * @package App\Models
@@ -108,6 +111,11 @@ class IrEmployee extends Model
 	public function ir_team_on_the_projects()
 	{
 		return $this->hasMany(IrTeamOnTheProject::class, 'employee_id');
+	}
+
+	public function ir_time_works()
+	{
+		return $this->hasMany(IrTimeWork::class, 'employe_id');
 	}
 
 	public function users()

@@ -15,11 +15,11 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property string $lib_function_occupied
+ * @property int $service_id
  * @property int $status_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
- * @property Statut $statut
  * @property Collection|IrEmployee[] $ir_employees
  * @property Collection|IrProject[] $ir_projects
  *
@@ -30,18 +30,15 @@ class IrFunctionOccupied extends Model
 	protected $table = 'ir_function_occupied';
 
 	protected $casts = [
+		'service_id' => 'int',
 		'status_id' => 'int'
 	];
 
 	protected $fillable = [
 		'lib_function_occupied',
+		'service_id',
 		'status_id'
 	];
-
-	public function statut()
-	{
-		return $this->belongsTo(Statut::class, 'status_id');
-	}
 
 	public function ir_employees()
 	{

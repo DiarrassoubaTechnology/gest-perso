@@ -23,7 +23,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|IrAppointment[] $ir_appointments
  * @property Collection|IrCustomer[] $ir_customers
  * @property Collection|IrEmployee[] $ir_employees
- * @property Collection|IrFunctionOccupied[] $ir_function_occupieds
  * @property Collection|IrHoliday[] $ir_holidays
  * @property Collection|IrJustificationForAbsence[] $ir_justification_for_absences
  * @property Collection|IrProjectManager[] $ir_project_managers
@@ -34,6 +33,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|IrTasksOnTheProjet[] $ir_tasks_on_the_projets
  * @property Collection|IrTeamForAppointment[] $ir_team_for_appointments
  * @property Collection|IrTeamOnTheProject[] $ir_team_on_the_projects
+ * @property Collection|IrTimeWork[] $ir_time_works
+ * @property Collection|IrWorkClock[] $ir_work_clocks
  *
  * @package App\Models
  */
@@ -68,11 +69,6 @@ class Statut extends Model
 	public function ir_employees()
 	{
 		return $this->hasMany(IrEmployee::class, 'status_id');
-	}
-
-	public function ir_function_occupieds()
-	{
-		return $this->hasMany(IrFunctionOccupied::class, 'status_id');
 	}
 
 	public function ir_holidays()
@@ -123,5 +119,15 @@ class Statut extends Model
 	public function ir_team_on_the_projects()
 	{
 		return $this->hasMany(IrTeamOnTheProject::class, 'status_id');
+	}
+
+	public function ir_time_works()
+	{
+		return $this->hasMany(IrTimeWork::class, 'status_id');
+	}
+
+	public function ir_work_clocks()
+	{
+		return $this->hasMany(IrWorkClock::class, 'status_id');
 	}
 }

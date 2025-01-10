@@ -146,7 +146,7 @@ $(document).ready(function () {
                         ).then((result) => {
                             if (result.isConfirmed) {
                                 // Action à effectuer si l'utilisateur click
-                                window.location.href = "/employee/liste"; // Recharge la page
+                                window.location.href = "/employee/list"; // Recharge la page
                             }
                         });
                         return false;
